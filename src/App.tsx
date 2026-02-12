@@ -1,9 +1,12 @@
 import './App.css'
+import Board from './components/Board'
 
 
 function App() {
   return (
-    <div className='bg-red-500'>TE AMO</div>
+    <main className='flex items-center justify-center h-screen'>
+      <Board />
+    </main>
   )
 }
 
