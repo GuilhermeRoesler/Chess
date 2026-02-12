@@ -8,13 +8,13 @@ const Board = () => {
 
     return (
         // retorna uma div que dentro dela vai ser usado o items (q é um parametro?? conferir com gui) 
-        <div className="grid grid-cols-10 rounded-4xl overflow-hidden">
+        <div className="grid grid-cols-10 rounded-4xl overflow-hidden h-[70vh] text-[2.5vh]">
             {/* o items vai ser iterado (.map é oq itera) (iterado é passado de linha em linha) com o id? com base no id?  */}
             {items.map((id) => (
                 <>
                     {/* a exclamação no começo indica negação, tudo o que vem dps dela será "trocado" */}
                     {!(id % 10 == 0 || id % 10 == 1 || id < 10 || id > 90) ? (
-                    // o que seria "para executar tem q dar check em todas essas coisas" agota é "se nao der check em nenuma dessas coisas, aí ele procede"
+                        // o que seria "para executar tem q dar check em todas essas coisas" agota é "se nao der check em nenuma dessas coisas, aí ele procede"
                         <Tile key={id} id={id} />
                     ) : (
                         <BorderTile key={id} id={id} />
