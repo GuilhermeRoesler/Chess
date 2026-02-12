@@ -1,4 +1,4 @@
-const BorderTile = ({id}: {id: number}) => {
+const BorderTile = ({ id }: { id: number }) => {
     // tabuleiros de xadres possuem "coordenadas", compostas por letras e números
     // eixo x = letras, eixo y = numeros 
     // para indicar esses "eixos" na borda do tabuleiro, foi criada a função getContent, 
@@ -11,7 +11,7 @@ const BorderTile = ({id}: {id: number}) => {
             content = ""
             // os quatro tiles não vão receber nenhum "conteúdo" (letra ou número)
         } else if (id < 10) {
-            content = String.fromCharCode(id+63)
+            content = String.fromCharCode(id + 63)
             // string.fromcharcode diz respeito a um comando que converte números em caracteres ascii, 
             // cada caractere tem um número que o representa, como no "sistema" A1-Z26, onde A é o número 1, e o Z, aúltima letra do alfabeto, recebe o número 26
             // a principal diferença é justamente este sistema ser muito maior, pois engloba todos os caracteres em ascii
@@ -20,7 +20,7 @@ const BorderTile = ({id}: {id: number}) => {
             // pegamos o id do primeiro quadradinho que aparece é 2, então somamos o restante para chegar em 65 (+63), pois 65 = A
         } else if (id > 90) {
             // nessa parte da função, verificamos se o id dos quadradinhos é maior que 90, o que diz respeito sobre a última linha de tiles do board
-            content = String.fromCharCode(id-27)
+            content = String.fromCharCode(id - 27)
             // novamente o string.fromcharcode é usado com o mesmo propósito
             // a diferença é que nesse caso o id do tile é 92, e foi necessario subtrair(-27) para chegarmos em 65 mais uma vez
         } else if (id % 10 == 1) {
@@ -30,7 +30,7 @@ const BorderTile = ({id}: {id: number}) => {
             // assim, o id passa por mais uma divisão, dessa vez inteira, id/10, que o resultado vai retornar em string
         } else if (id % 10 == 0) {
             // na última verificação, ele busca por ids que quando dividisos por 10, o resto é igual a 0
-            content = Math.trunc((id-1) / 10).toString()
+            content = Math.trunc((id - 1) / 10).toString()
             // por exemplo, o primeiro tile que vai passar na sua verificação vai ser o 20, 
             // ou seja, ele vai passar por algumas operações: 20-1 = 19, trunc(19/10)=1, que é o conteúdo que a gente busca
         }
@@ -38,7 +38,7 @@ const BorderTile = ({id}: {id: number}) => {
     }
 
     return (
-        <div className={`bg-amber-800 min-w-4 w-12 aspect-square flex items-center justify-center font-bold text-amber-50 text-2xl`}>{getContent()}</div>
+        <div className={`bg-amber-800 aspect-square flex items-center justify-center font-bold text-amber-50`}>{getContent()}</div>
     )
 }
 
